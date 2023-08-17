@@ -1,6 +1,7 @@
 from features.pages.BasePage import BasePage
 from features.pages.DashboardPage import DashboardPage
 from selenium.webdriver.common.alert import Alert
+from selenium.webdriver.support.ui import WebDriverWait
 
 class LoginPage(BasePage):
 
@@ -22,4 +23,6 @@ class LoginPage(BasePage):
         return DashboardPage(self.driver)
 
     def display_status_of_warning_message(self, expected_warning_text):
+        wait=WebDriverWait(self.driver, 10)
+        self.click_on_element()
         return self.verify_alert_message(expected_warning_text)
